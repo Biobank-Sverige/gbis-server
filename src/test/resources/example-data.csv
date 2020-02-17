@@ -1,0 +1,3 @@
+"sample_id","study_id","sample_usage","last_usage_date","donor","parent_sample_id","material_type","sample_volume","freeze_thaw_cycles","sample_plate_id","sample_plate_position"
+"12345","HEART_STUDY_2","RESEARCH","2023-06-12","19121212-1212","43425-Y2","SER","125","4","3245-53","A01"
+"12346","HEART_STUDY_2","RESEARCH","2023-06-12","19121212-1212","43425-Y2","SER","200","0","3245-53","A02"
