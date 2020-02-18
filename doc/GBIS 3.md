@@ -25,6 +25,7 @@ Ett prov har följande information:
 |---|---|---|---|
 |_sample_id_|Sträng av minst 1, max 30 tecken från ASCII 33 - 126|Ja|Motsvarar den fysiska märkning som unikt identifierar ett rör inom en provsamling|
 |_study_id_|Sträng av minst 1, max 30 tecken från ASCII 33 - 126|Nej|Identifierar den provsamling vilken provet tillhör. Används (bland annat) för att säkerställa unika identifierare i kombination med _sample_id_
+|_sample_taken_date_|Datum enligt ISO 8601 på formatet YYYY-MM-DD utan tidszonsangivelse|Nej|Datum då provet är taget|
 |_sample_usage_|Någon av textsträngarna [RESEARCH, CARE, RESARCH_AND_CARE]|Ja|Beskriver hur provet får användas|
 |_last_usage_date_|Datum enligt ISO 8601 på formatet YYYY-MM-DD utan tidszonsangivelse|Nej|Sista dag då provet får användas, t.ex. om dett finns ett etikprövningsbeslut som begränsar i tid.|
 |_donor_|Sträng av minst 1, max 30 tecken från ASCII 33 - 126|Nej|Identifierar provgivaren med t.ex. personnummer eller studienummer. Om personnummer används ska det vara på formatet ÅÅÅÅMMDD-NNNN och ingen hänsyn tas till att personen fyllt hundra år utan skiljetecknet '-' används oavsett.
@@ -40,6 +41,7 @@ Exempel på prov (JSON):
     {
         sample_id: 12345
         study_id: "HEART_STUDY_2"
+        sample_taken_date": "2001-01-01",
         sample_usage: "RESEARCH"
         last_usage_date: "2023-06-12"
         donor: "19121212-1212"
@@ -53,8 +55,8 @@ Exempel på prov (JSON):
 
 Exempel på prov (CSV):
 
-    "sample_id","study_id","sample_usage","last_usage_date","donor","parent_sample_id","material_type","sample_volume","freeze_thaw_cycles","sample_plate_id","sample_plate_position"
-    "123456","HEART_STUDY_2","RESEARCH","2023-06-12","19121212-1212","43425-Y2","SER","125","4","3245-53","A01"
+    "sample_id","study_id","sample_taken_date":,"sample_usage","last_usage_date","donor","parent_sample_id","material_type","sample_volume","freeze_thaw_cycles","sample_plate_id","sample_plate_position"
+    "123456","HEART_STUDY_2","2001-01-01","RESEARCH","2023-06-12","19121212-1212","43425-Y2","SER","125","4","3245-53","A01"
     
 OM csv-formatet används ska den ha exakt en header-rad enligt ovan och använda teckentabell UTF-8 med CRLF som radavslut. Samtliga fält ska vara quotade med " (även siffror). Escape-character ska vara \\ .
 

@@ -26,6 +26,7 @@ public class SampleCsvFileHandler {
                 samples.add(new Sample(
                         record.get("sample_id"),
                         record.get("study_id"),
+                        record.get("sample_taken_date"),
                         record.get("sample_usage"),
                         record.get("last_usage_date"),
                         record.get("donor"),

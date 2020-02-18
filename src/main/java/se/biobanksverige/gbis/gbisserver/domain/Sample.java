@@ -10,6 +10,8 @@ public class Sample {
     public final String sampleId;
     @JsonProperty("study_id")
     public final String studyId;
+    @JsonProperty("sample_taken_date")
+    public final String sampleTakenDate;
     @JsonProperty("sample_usage")
     public final String sampleUsage;
     @JsonProperty("last_usage_date")
@@ -29,9 +31,10 @@ public class Sample {
     @JsonProperty("sample_plate_position")
     public final String samplePlatePosition;
 
-    public Sample(String sampleId, String studyId, String sampleUsage, String lastUsageDate, String donor, String parentSampleId, String materialType, Integer sampleVolume, Integer freezeThawCycles, String samplePlateId, String samplePlatePosition) {
+    public Sample(String sampleId, String studyId, String sampleTakenDate, String sampleUsage, String lastUsageDate, String donor, String parentSampleId, String materialType, Integer sampleVolume, Integer freezeThawCycles, String samplePlateId, String samplePlatePosition) {
         this.sampleId = sampleId;
         this.studyId = studyId;
+        this.sampleTakenDate = sampleTakenDate;
         this.sampleUsage = sampleUsage;
         this.lastUsageDate = lastUsageDate;
         this.donor = donor;
@@ -49,6 +52,7 @@ public class Sample {
         if (o == null || getClass() != o.getClass()) return false;
         Sample sample = (Sample) o;
         return sampleId.equals(sample.sampleId) &&
+                Objects.equals(sampleTakenDate, sample.sampleTakenDate) &&
                 Objects.equals(studyId, sample.studyId) &&
                 Objects.equals(sampleUsage, sample.sampleUsage) &&
                 Objects.equals(lastUsageDate, sample.lastUsageDate) &&
@@ -63,7 +67,7 @@ public class Sample {
 
     @Override
     public int hashCode() {
-        return Objects.hash(sampleId, studyId, sampleUsage, lastUsageDate, donor, parentSampleId, materialType, sampleVolume, freezeThawCycles, samplePlateId, samplePlatePosition);
+        return Objects.hash(sampleId, studyId, sampleTakenDate, sampleUsage, lastUsageDate, donor, parentSampleId, materialType, sampleVolume, freezeThawCycles, samplePlateId, samplePlatePosition);
     }
 
     @Override
@@ -71,6 +75,7 @@ public class Sample {
         return "Sample{" +
                 "sampleId='" + sampleId + '\'' +
                 ", studyId='" + studyId + '\'' +
+                ", sampleTakenDate='" + sampleTakenDate + '\'' +
                 ", sampleUsage='" + sampleUsage + '\'' +
                 ", lastUsageDate='" + lastUsageDate + '\'' +
                 ", donor='" + donor + '\'' +
