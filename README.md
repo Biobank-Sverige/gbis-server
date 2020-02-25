@@ -2,7 +2,7 @@ Referensimplementation för GBIS 3.0
 ===================================
 
 Detta projekt är en referensimplementation av den föreslagna GBIS 3.0 standarden.
-För dokumentation av själva standarden, se [GBIS 3.md](doc/GBIS 3.md).
+För dokumentation av själva standarden, se [doc/GBIS 3.md](doc/GBIS 3.md).
 
 Köra lokalt
 ===========
