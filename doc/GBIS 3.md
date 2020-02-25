@@ -9,7 +9,9 @@ Detta kan ha flera skäl, men ett av dem torde vara att den ger ganska lite prak
 I arbetet med GBIS 3.0 har jag tagit avstamp i den GBIS 2.0 och försökt att i så stor utsträckning som möjligt återanvända termer och begrepp. Skillnaden i version 3.0 är att den syftar mer till att också beskriva struktur (t.ex. filformat) och inte bara innehåll.
 Målet är att göra en praktiskt användbar standard som snabbt kan tas i bruk snarare än en komplett nomenklatur för biobanksprovers hela livscykel. Detta innebär att standarden på intet sätt är heltäckande utan är tänkt att utvecklas i nya versioner allteftersom den används, dock med en stabil stomme.
 
-I mitt arbete har jag också tittat på de standarder som arbetas på på andra håll (t.ex. [HL7FHIR - specimen](https://www.hl7.org/fhir/specimen.html)) och konstaterar till att de syftar till att lösa problem på en högre nivå, t.ex. annoteringar av resultat och utbyte av stora datamängder snarare än att som här primärt fokusera på ett fysiskt prov, eller är så komplexa att det i realiteten inte kan användas i den praktiska verksamheten.
+I mitt arbete har jag också tittat på de standarder som arbetas på på andra håll (t.ex. [HL7FHIR - specimen](https://www.hl7.org/fhir/specimen.html)) och konstaterar till att de syftar till att lösa problem på en högre nivå, t.ex. annoteringar av resultat och utbyte av stora datamängder snarare än att som här primärt fokusera på ett fysiskt prov, eller är så komplexa att det i realiteten inte kan användas i den praktiska verksamheten i nuläget.
+Jag tror dock att det finns ett värde för Biobank Sverige att titta på dessa arbeten för framtida standarder.
+Även den nationella tjänsteplattformen kan bli aktuell att använda, men jag tror att detta arbete ska ses som ett steg på vägen mot att underlätta informationsöverföring både inom och mellan biobanker. Att påbörja ett arbete med att utreda hur biobankerna i framtiden kan ansluta sig till tjänsteplattformen tror jag dock är värdefullt att påbörja, men det ligger långt utanför omfattningen av detta projekt.
 
 Struktur
 --------
@@ -35,6 +37,30 @@ Ett prov har följande information:
 |_freeze_thaw_cycles_|Heltal mellan 0 och 255|Nej|Beskriver hur många gånger provet tinats och återinfrysts|
 |_sample_plate_id_|Sträng av minst 1, max 30 tecken från ASCII 33 - 126|Nej|Motsvarar den fysiska märkning som unikt identifierar eventuell platta i vilket provet återfinns|
 |_sample_plate_postition_|Sträng av minst 1, max 30 tecken från ASCII 33 - 126|Nej|Provets position i fysisk platta, t.ex. A01
+
+**_sample_type_**
+
+Sample type ska vara någon av följande
+
+|Värde|Beskrivning|
+|---|---|
+|BLD|Whole blood|
+|BUF|Unficolled cryopreserved buffy coat, viable|
+|BFF|Unficolled buffy coat, non-viable|
+|CDN|ComplementaryDNA (cDNA)|
+|CEL|PBMC cells, viable|
+|CRD|Cord blood|
+|DWB|Dried whole blood|
+|PEL|PBMC cells, non-viable|
+|PL*|Plasma, all|
+|PL1|Plasma, single-spun|
+|PL2|Plasma, double-spun|
+|RBC|Red blood cells|
+|SER|Serum|
+|XDA|Extracted DNA|
+|WDA|Whole Genome Amplified DNA|
+
+
 
 Exempel på prov (JSON):
 
@@ -62,23 +88,3 @@ OM csv-formatet används ska den ha exakt en header-rad enligt ovan och använda
 
 Naturligtvis kan en csv-fil innehålla mer än ett prov på samma sätt som en JSON-struktur.
 OM JSON-strukturen sparas till fil ska denna fil använda teckentabell UTF-8 och radavslut CRLF.
-
-
-TODO
-====
-- sampleDateTime
-Provtagningsdatum och tidpunkt.
-Tidsstämpel
-
-- sampleState
-Provets status i biobanken.
-
-- referralId
-  Provets remissId. 
-  Sträng
-
-- https://www.hl7.org/fhir/specimen.html
-
-- https://www.hl7.org/fhir/v2/0487/index.html
-
-- https://www.hl7.org/fhir/v2/0493/index.html
