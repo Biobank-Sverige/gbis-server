@@ -17,7 +17,7 @@ public class GbisEndpoint {
     @Value("${datafile.path}")
     private String dataFile;
 
-    @RequestMapping("/")
+    @RequestMapping("/samples")
     public List<Sample> getSample(){
         return new SampleCsvFileHandler().readSampleDataFromCsv(new File(dataFile));
     }
